@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
+import App from './App';
 
 export default function Basic() {
   const [datatable, setDatatable] = React.useState({
@@ -132,5 +133,6 @@ export default function Basic() {
     ],
   });
 
-  return <MDBDataTableV5 hover entriesOptions={[150, 20, 25]} entries={150} pagesAmount={1} data={datatable} searchTop searchBottom={false}  />;
+  return (<App/>,
+  <MDBDataTableV5 hover entriesOptions={[150, 20, 25]} entries={150} pagesAmount={1} data={datatable} searchTop searchBottom={false}  />);
 }
