@@ -134,5 +134,6 @@ export default function Basic() {
   });
 
   return (<App/>,
-  <MDBDataTableV5 hover entriesOptions={[150, 20, 25]} entries={150} pagesAmount={1} data={datatable} searchTop searchBottom={false}  />);
+  <MDBDataTableV5 hover entriesOptions={[10, 50, 100]} 
+                entries={150} pagesAmount={1} searchLabel="Pesquisar" data={datatable} striped small searchTop searchBottom={false}  />);
 }
