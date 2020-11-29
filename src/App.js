@@ -2,6 +2,8 @@ import React from 'react';
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -28,7 +30,7 @@ function App() {
   return (<Router>
     <div className="App">
       <header className="App-header">
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
           <Container>
 
             <Navbar.Brand>
@@ -37,20 +39,23 @@ function App() {
               </Link>
             </Navbar.Brand> 
 
-            <Nav className="justify-content-end">
-              <Nav>
-                <Link to={"/list"} className="nav-link">
-                  Lista de Jogos
-                </Link>
-              </Nav>              
+            <Navbar.Toggle />
+          <Navbar.Collapse  className="justify-content-end">
 
               <Nav>
-                <Link to={"/about"} className="nav-link">
-                  Sobre
-                </Link>
+                <Nav>
+                  <Link to={"/list"} className="nav-link">
+                    Lista de Jogos
+                  </Link>
+                </Nav>              
+
+                <Nav>
+                  <Link to={"/about"} className="nav-link">
+                    Sobre
+                  </Link>
+                </Nav>
               </Nav>
-            </Nav>
-
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
@@ -88,6 +93,37 @@ function App() {
       
     </main>
   );*/
+
+  function XX() {
+    return (
+      <>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="#home">App</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse>
+            <Nav className="mr-auto">
+              <Nav.Link href="#foo">foo</Nav.Link>
+              <Nav.Link href="#bar">bar</Nav.Link>
+              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/1">action 1</NavDropdown.Item>
+                <NavDropdown.Item href="#action/2">action 2</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3">action 3</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/4">action 4</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <Nav.Link href="#baz">baz</Nav.Link>
+              <Nav.Link eventKey={2} href="#qux">
+                qux
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </>
+    );
+  }
+
 }
 
 export default App;

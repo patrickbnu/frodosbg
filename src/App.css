@@ -1,4 +1,12 @@
+body {
+  background-color: #d0d0da;
+}
+
+thead {
+  color : #7c64fd;
+}
 .wrapper {
+  
   padding-top: 30px;
 }
 
@@ -7,13 +15,13 @@ body h3 {
 }
 
 .navbar-brand a {
-  color: #ffffff;
+  color:  #7c64fd
 }
 
 .form-wrapper,
 .table-wrapper {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 72px auto 0 auto;
 }
 
 .table-wrapper {

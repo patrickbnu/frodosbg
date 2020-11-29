@@ -41,8 +41,9 @@ export default class BoardList extends Component {
 
 
   render() {
-    return (<div className="table-wrapper">
-      <Table striped bordered hover>
+    return (
+    <div className="table-wrapper">
+      <Table  bordered hover variant="dark">
         <thead>
           <tr>
             <th>Jogo</th>
