@@ -55,7 +55,9 @@ export default class About extends Component {
                           <Form.Control size="sm"  placeholder="Nome do Jogo" value={this.state.gameName} onChange={this.onChangeGameName} />
                       </Form.Group> 
 
-                      <Form.Group  >
+                    </Form.Row>
+                    <Form.Row className="xpto" >
+                      <Form.Group as={Col}  >
                           <Form.Control as="select" size="sm" value={this.state.category} onChange={this.onChangeCategory} > 
                             <option>Categoria</option>
                             <option>Bronze</option>
