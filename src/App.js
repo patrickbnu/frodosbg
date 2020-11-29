@@ -17,6 +17,7 @@ import BoardList from "./components/BoardListComponent";
 import About from "./components/AboutComponent"; 
 import GameDetail from "./components/GameDetailComponent"; 
 
+
 function App() {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -59,6 +60,8 @@ function App() {
           </Container>
         </Navbar>
       </header>
+
+   
 
       <Container>
         <Row>

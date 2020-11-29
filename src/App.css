@@ -5,6 +5,19 @@ body {
 thead {
   color : #7c64fd;
 }
+
+.button-float-right{
+  float: right;
+}
+
+.xpto {
+  align-items: center;
+}
+
+.color-red {
+  color : #000
+}
+
 .wrapper {
   
   padding-top: 30px;

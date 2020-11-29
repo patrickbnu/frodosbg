@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import BoardTableRow from './BoardTableRow';
+import Filter from "./FilterComponent"; 
 
 
 export default class BoardList extends Component {
@@ -9,8 +10,12 @@ export default class BoardList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      boards: []
+      boards: [],
+      original : []
     };
+
+    this.filter = this.filter.bind(this)
+
   }
 
   componentDidMount() {
@@ -18,12 +23,13 @@ export default class BoardList extends Component {
       //alert("first time")
     }
 
-    //alert("teste")
+
     axios.get('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({
-          boards: res.data.boards
+          boards: res.data.boards,
+          original : res.data.boards
         });
       })
       .catch((error) => {
@@ -39,17 +45,53 @@ export default class BoardList extends Component {
     });
   }
 
+  filter(filterState) {
+
+    
+    let gameName = filterState.gameName    
+    let category = filterState.category
+    let onlyAvailable = filterState.onlyAvailable
+
+   
+    let fn = function(board) {
+        if(onlyAvailable && board.isRented == true){
+          return false;
+        }
+
+        if("Categoria" != category) {
+          if (board.category != category) {
+            return false;
+          }
+        }
+
+        if('' != gameName) {
+          if (board.name.toLowerCase().indexOf(gameName.toLowerCase()) == -1) {
+            return false;
+          }
+        }
+
+        return true;
+    }
+    
+    //alert("state" +JSON.stringify(this.state.boards))
+
+    this.setState({
+      boards: this.state.original.filter(fn)
+    });
+  }
+
 
   render() {
     return (
     <div className="table-wrapper">
-      <Table  bordered hover variant="dark">
+      <Filter filter = {this.filter}></Filter>
+      <Table striped bordered hover variant="dark" size="sm">
         <thead>
           <tr>
-            <th>Jogo</th>
-            <th>Categoria</th>
-            <th>Disponível</th>
-            <th>Ação</th>
+            <th className="text-center">Jogo</th>
+            <th className="text-center">Categoria</th>
+            <th className="text-center">Disponível</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -58,4 +100,5 @@ export default class BoardList extends Component {
       </Table>
     </div>);
   }
+  //<th className="text-center">Ação</th>
 }

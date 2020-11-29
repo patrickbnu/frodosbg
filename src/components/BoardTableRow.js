@@ -21,17 +21,23 @@ export default class BoardTableRow extends Component {
 
     render() {
         return (
-            <tr>
-                <td>{this.props.obj.name}</td> 
-                <td>{this.props.obj.category}</td>                           
-                <td>{ (this.props.obj.isRented) ? "não" : "sim"}</td>
-                <td>
+            <tr className={ (this.props.obj.isRented) ? 'color-red' : ''}>
+                <td className="text-center">{this.props.obj.name}</td> 
+                <td className="text-center">{this.props.obj.category}</td>                           
+                <td className="text-center">{ (this.props.obj.isRented) ? "não" : "sim"}</td>
+                
+            </tr>
+        );
+    }
+
+    /**
+     * <td className="text-center">
                     <Link className="edit-link" to={"/game/" + this.props.obj.name}>
                         Detalhes
                     </Link>
                     
                 </td>
-            </tr>
-        );
-    }
+     * 
+     * 
+     */
 }
