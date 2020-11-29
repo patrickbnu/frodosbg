@@ -19,7 +19,7 @@ export default class BoardList extends Component {
     }
 
     //alert("teste")
-    axios.get('http://frodosbg-api-git-master.patrickbnu.vercel.app/api/boards')
+    axios.get('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({
