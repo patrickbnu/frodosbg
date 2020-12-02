@@ -16,12 +16,8 @@ export default class About extends Component {
 
     <Jumbotron fluid>
       <Container>
-          A devolução pode ser feita nos seguintes endereços, combinando previamente via whatsapp:<br/>
-
-          <ul>
-              <li>Rua Divinópolis - Velha Central</li>
-              <li>Comprovante de residência</li>
-          </ul>
+          Retirada é feita em minha residência na rua Divinópolis, bairro da velha central em Blumenau.<br/>
+          Combinar horário via whatsapp.<br/>
 
          <Button href="https://api.whatsapp.com/send?phone=5547999826190" target="_blank" size="sm" variant="outline-success"> abrir whatsapp </Button>
           

@@ -40,7 +40,7 @@ function App() {
               </Link>
             </Navbar.Brand> 
 
-            <Navbar.Toggle />
+          <Navbar.Toggle />
           <Navbar.Collapse  className="justify-content-end">
 
               <Nav>

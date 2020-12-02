@@ -88,7 +88,18 @@ export default class About extends Component {
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
-            <Card>
+           
+          </Accordion>
+
+
+         
+    </div>);
+  }
+
+
+  /**
+   * 
+   *  <Card>
               <Accordion.Toggle as={Card.Header} eventKey="1">
                 Filtro Avançado
               </Accordion.Toggle>
@@ -96,10 +107,7 @@ export default class About extends Component {
                 <Card.Body>Ainda não implementado, em breve!</Card.Body>
               </Accordion.Collapse>
             </Card>
-          </Accordion>
-
-
-         
-    </div>);
-  }
+   * 
+   * 
+   */
 }
