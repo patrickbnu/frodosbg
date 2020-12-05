@@ -7,7 +7,7 @@ export default class GameDetail extends Component {
     super(props)   
 
     let name = this.props.location.pathname
-    const gameName = " " + name.substr(name.lastIndexOf("/")+1, name.length-1);
+    const gameName = name.substr(name.lastIndexOf("/")+1, name.length-1);
     this.state = {
         gameName : gameName,
         board : ''
@@ -39,7 +39,7 @@ export default class GameDetail extends Component {
    // const location = useLocation();
     return (<div className="table-wrapper">
       <p> <br />
-      Em breve mais detalhes sobre o jogo 
+      Em breve mais detalhes sobre o jogo  
         {this.state.gameName}
         <br/><br/>
       json:   {this.state.board}
