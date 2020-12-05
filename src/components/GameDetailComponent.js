@@ -36,13 +36,14 @@ export default class GameDetail extends Component {
 
 
   render() {
+    let json = JSON.stringify(this.state.board)
    // const location = useLocation();
     return (<div className="table-wrapper">
       <p> <br />
       Em breve mais detalhes sobre o jogo  
         {this.state.gameName}
         <br/><br/>
-      json:   {this.state.board}
+      json:   {json}
  
       </p>
     </div>);
