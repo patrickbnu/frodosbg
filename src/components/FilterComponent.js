@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 
+import ReactStars from "react-rating-stars-component";
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+
+import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
@@ -14,12 +19,15 @@ export default class About extends Component {
     this.state = {
       gameName : '',
       category : 'Categoria',
-      onlyAvailable: false
+      onlyAvailable: false, 
+      complexityRating : 5
     }
-    ;
+    
     this.onChangeGameName = this.onChangeGameName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangeOnlyAvailable = this.onChangeOnlyAvailable.bind(this);
+    
+    this.onChangeComplexity = this.onChangeComplexity.bind(this);
   }
 
   onChangeGameName(e) {
@@ -34,10 +42,24 @@ export default class About extends Component {
     this.setState({ onlyAvailable: e.target.checked })
   }
 
+  onChangeComplexity(value) {
+    this.setState({ complexityRating: value })
+  }
+
 
 
   render() {
     var handle  =   this.props.filter;
+    var clear = (state) =>  {
+      var emptyState = {
+        gameName : '',
+        category : 'Categoria',
+        onlyAvailable: false, 
+        complexityRating : 5
+      }
+      this.setState(emptyState)
+      handle(emptyState);
+    }
    
 
     return (
@@ -46,45 +68,56 @@ export default class About extends Component {
           <Accordion  variant="dark" >
             <Card>
               <Accordion.Toggle as={Card.Header} eventKey="0">
-                Filtro Básico
+                Pesquisar
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
-                    <Form.Row className="xpto" >
-                      <Form.Group as={Col}  >
+                    <Container fluid >
+                      <Row>
                           <Form.Control size="sm"  placeholder="Nome do Jogo" value={this.state.gameName} onChange={this.onChangeGameName} />
-                      </Form.Group> 
+                      </Row> 
 
-                    </Form.Row>
-                    <Form.Row className="xpto" >
-                      <Form.Group as={Col}  >
-                          <Form.Control as="select" size="sm" value={this.state.category} onChange={this.onChangeCategory} > 
+                      <Row>
+                          <Form.Control size="sm"   as="select" value={this.state.category} onChange={this.onChangeCategory} > 
                             <option>Categoria</option>
                             <option>Bronze</option>
                             <option>Prata</option>
                             <option>Ouro</option>
                             <option>Diamante</option>
                           </Form.Control>
-                      </Form.Group>
+                      </Row>   
+
+                      <Row key="checkbox"  >
+                        <Col > 
+                          <Form.Check className="check-disponivel"  type="checkbox"  id={`check-api-checkbox`} >
+                            <Form.Check.Label >Apenas disponíveis:</Form.Check.Label>
+                            <Form.Check.Input   type="checkbox"  checked={this.state.onlyAvailable} onChange={this.onChangeOnlyAvailable} />
+                          </Form.Check>
+                        </Col>       
+                      </Row> 
 
 
+                      <Row  >  
+                        <Col >
+                          <Form.Label >Complexidade max: </Form.Label>
+                        </Col>
+                        <Col>
+                          <ReactStars count={5} value={this.state.complexityRating} size={20} edit={true} isHalf={true} 
+                          activeColor="rgb(230, 84, 84)" color="#000000" onChange={this.onChangeComplexity}/>  
+                        </Col>
+                      </Row>  
 
-                      <Form.Group as={Col}  >
-                          {
-                            <div  key="checkbox" >
-                              <Form.Check type="checkbox"  id={`check-api-checkbox`} >
-                                <Form.Check.Input type="checkbox"  checked={this.state.onlyAvailable} onChange={this.onChangeOnlyAvailable} />
-                                <Form.Check.Label>Disponível</Form.Check.Label>
-                              </Form.Check>
-                            </div>
-                          }
-                      </Form.Group> 
-                      <Form.Group as={Col} >  
-                          <Button  className="button-float-right" onClick={() => handle(this.state) } variant="outline-primary" size="sm"> Filtrar</Button>
-                      </Form.Group>      
-                  </Form.Row>
+                      <Form.Group as={Row}   >  
+                        <Col sm="6">
+                          <Button block="block" onClick={() => clear(this.state) } variant="outline-secondary" size="sm"> Limpar</Button>
+                        </Col>
+                        <Col sm="6">                              
+                          <Button block="block" onClick={() => handle(this.state) } variant="outline-success" size="sm"> Pesquisar</Button>
+                        </Col>
+                      </Form.Group>             
 
 
+                    </Container>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -99,14 +132,22 @@ export default class About extends Component {
 
   /**
    * 
-   *  <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="1">
-                Filtro Avançado
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="1">
-                <Card.Body>Ainda não implementado, em breve!</Card.Body>
-              </Accordion.Collapse>
-            </Card>
+   *  
+   * 
+   * 
+   
+
+                    <Form.Group as={Row}  >
+                            {<div  key="checkbox" >
+                                <Form.Check  column sm="12" type="checkbox"  id={`check-api-checkbox`} >
+                                  <Form.Check.Label >Disponível</Form.Check.Label>
+                                  <Form.Check.Input type="checkbox"  checked={this.state.onlyAvailable} onChange={this.onChangeOnlyAvailable} />
+                                </Form.Check>
+                              </div>}
+                        </Form.Group> 
+
+
+   * 
    * 
    * 
    */

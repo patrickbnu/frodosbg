@@ -18,6 +18,25 @@ thead {
   color : rgb(230, 84, 84)
 }
 
+.check-disponivel {
+  padding: 0px;
+}
+
+.check-disponivel input{
+  margin-left: 50px;
+}
+
+
+.div-linha {
+  display: flex;
+  line-height: 20px;
+  justify-content: center;
+}
+
+.row-detail {
+  
+  background-color: #343538;
+}
 .wrapper {
   
   padding-top: 30px;

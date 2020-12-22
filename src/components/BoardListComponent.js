@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-import BoardTableRow from './BoardTableRow';
+
+import { BoardTableRow } from './BoardTableRow';
+import { BoardDetailTableRow } from './BoardDetailTableRow';
+
 import Filter from "./FilterComponent"; 
 
 
@@ -19,11 +22,6 @@ export default class BoardList extends Component {
   }
 
   componentDidMount() {
-    if (this.state.boards = []) {
-      //alert("first time")
-    }
-
-
     axios.get('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
@@ -35,25 +33,74 @@ export default class BoardList extends Component {
       .catch((error) => {
         alert(error)
         console.log("ERRRO: " +error);
-      })
+      })      
   }
 
+  
+
   DataTable() {
+    var index = 0;
+
+    
     return this.state.boards.map((res, i) => {
       //alert(JSON.stringify(res));
-      return <BoardTableRow obj={res} key={i} />;
+      return (
+        <Fragment key={"F"+i}>
+          <BoardTableRow        obj={res}  id={"id-"+i}        key={"P"+i} /> 
+          <BoardDetailTableRow  obj={res}  id={"detail-id-"+i} key={"D"+i} />
+        </Fragment> 
+      );
     });
   }
 
   filter(filterState) {
+    filterState.date  = new Date().toLocaleString("pt-BR")
+
+    axios.post('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/filter',{
+    //axios.post('http://localhost:3001/api/filter',{      
+        filter : filterState
+    })
+    .then(resp => {
+        //alert(JSON.stringify(resp.data));
+    })
+    .catch(err => {
+        
+    });
+
 
     
     let gameName = filterState.gameName    
     let category = filterState.category
     let onlyAvailable = filterState.onlyAvailable
 
+    let maxComplexity = filterState.complexityRating;
+    let minPlayers = 1;
+    let maxPlayers = 1000;
+
+    let maxDuration = 1000;
+
    
     let fn = function(board) {
+
+       
+        if (board.duration > maxDuration) {
+          return false;
+        }
+
+        
+        if ( Math.floor(board.complexityRating)  > maxComplexity) {
+          return false;
+        }
+
+        if (board.minPlayers < minPlayers) {
+          return false;
+        }
+
+        if (board.maxPlayers > maxPlayers) {
+          return false;
+        }
+
+
         if(onlyAvailable && board.isRented == true){
           return false;
         }
@@ -85,12 +132,10 @@ export default class BoardList extends Component {
     return (
     <div className="table-wrapper">
       <Filter filter = {this.filter}></Filter>
-      <Table striped bordered hover variant="dark" size="sm">
+      <Table  bordered hover variant="dark" size="sm" >
         <thead>
           <tr>
             <th className="text-center">Jogo</th>
-            <th className="text-center">Categoria</th>
-            <th className="text-center">Disponível</th>
             
           </tr>
         </thead>

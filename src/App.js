@@ -17,7 +17,6 @@ import BoardList from "./components/BoardListComponent";
 import About from "./components/AboutComponent"; 
 import GameDetail from "./components/GameDetailComponent"; 
 
-
 function App() {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -28,57 +27,60 @@ function App() {
     }
     getDate();*/
   }, []);
-  return (<Router>
-    <div className="App">
-      <header className="App-header">
-        <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+  return (
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+              <Container>
+
+                <Navbar.Brand>
+                  <Link to={"/"} className="nav-link">
+                    Frodo's Board Games
+                  </Link>
+                </Navbar.Brand> 
+
+              <Navbar.Toggle />
+              <Navbar.Collapse  className="justify-content-end">
+
+                  <Nav>
+                    <Nav>
+                      <Link to={"/list"} className="nav-link">
+                        Lista de Jogos
+                      </Link>
+                    </Nav>              
+
+                    <Nav>
+                      <Link to={"/about"} className="nav-link">
+                        Sobre
+                      </Link>
+                    </Nav>
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+          </header>
+
+      
+
           <Container>
-
-            <Navbar.Brand>
-              <Link to={"/"} className="nav-link">
-                Frodo's Board Games
-              </Link>
-            </Navbar.Brand> 
-
-          <Navbar.Toggle />
-          <Navbar.Collapse  className="justify-content-end">
-
-              <Nav>
-                <Nav>
-                  <Link to={"/list"} className="nav-link">
-                    Lista de Jogos
-                  </Link>
-                </Nav>              
-
-                <Nav>
-                  <Link to={"/about"} className="nav-link">
-                    Sobre
-                  </Link>
-                </Nav>
-              </Nav>
-            </Navbar.Collapse>
+            <Row>
+              <Col md={12}>
+                <div className="wrapper">
+                  <Switch>
+                    <Route exact path='/' component={BoardList} />
+                    <Route path="/about" component={About} />
+                    <Route path="/list" component={BoardList} />
+                    <Route path="/game" component={GameDetail} /> 
+                  </Switch>
+                </div>
+              </Col>
+            </Row>
           </Container>
-        </Navbar>
-      </header>
-
-   
-
-      <Container>
-        <Row>
-          <Col md={12}>
-            <div className="wrapper">
-              <Switch>
-                <Route exact path='/' component={BoardList} />
-                <Route path="/about" component={About} />
-                <Route path="/list" component={BoardList} />
-                <Route path="/game" component={GameDetail} /> 
-              </Switch>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  </Router>);
+        </div>
+      </Router>)
+      
+;
 
 /** 
   return (
