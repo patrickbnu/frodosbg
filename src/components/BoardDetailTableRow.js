@@ -32,6 +32,10 @@ export function BoardDetailTableRow(props) {
     }
     let detail = props.obj;
 
+    let available = !detail.isRented
+    let textAvailable = available ? "Disponível" : "Indisponível"
+    let category = detail.category// + " R$"+getCategoryValue(detail.category);
+
     if (!detail.complexityRating) {
 
         return (
@@ -39,7 +43,13 @@ export function BoardDetailTableRow(props) {
         
                 <td className="text-center" colSpan='3'>  
                     <div className="div-linha">
-                        Sem informações ainda
+                        <div><b>Categoria:</b> {category}</div>
+                    </div>
+                    <div className={classAvailable}>
+                        <div><b>{textAvailable}</b></div>
+                    </div>
+                    <div className="div-linha">
+                        ...
                     </div> 
                 </td>
             </tr>)
@@ -53,11 +63,11 @@ export function BoardDetailTableRow(props) {
     let minPlayers = detail.minPlayers ? detail.minPlayers : -1;
     let maxPlayers = detail.maxPlayers ? detail.maxPlayers : -1;
 
-    let available = !detail.isRented
+  
     let classAvailable = available ? "div-linha" : "div-linha color-red" 
-    let textAvailable = available ? "Disponível" : "Indisponível"
+  
 
-    let category = detail.category// + " R$"+getCategoryValue(detail.category);
+  
 
     return (
         <tr  className="row-detail">

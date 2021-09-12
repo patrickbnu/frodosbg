@@ -17,6 +17,10 @@ thead {
 .color-red {
   color : rgb(230, 84, 84)
 }
+.color-green {
+  color : rgb(84, 230, 91)
+}
+
 
 .check-disponivel {
   padding: 0px;

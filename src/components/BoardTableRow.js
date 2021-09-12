@@ -16,7 +16,7 @@ export function BoardTableRow(props) {
     const dispatch = useDispatch();   
 
     return (
-        <tr className={ (props.obj.isRented) ? 'color-red' : ''  } onClick={() => dispatch(lineClick(props.id))}>
+        <tr className={ (props.obj.isRented) ? 'color-red' : ((props.obj.registrationDate) ? 'color-green': '')  } onClick={() => dispatch(lineClick(props.id))}>
             <td className="text-center">{props.obj.name} </td> 
         </tr>
     );
