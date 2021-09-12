@@ -22,7 +22,7 @@ export default class BoardList extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/boards')
+    axios.get('https://frodosbg-api.vercel.app/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({
@@ -56,7 +56,7 @@ export default class BoardList extends Component {
   filter(filterState) {
     filterState.date  = new Date().toLocaleString("pt-BR")
 
-    axios.post('https://frodosbg-api-git-master.patrickbnu.vercel.app/api/filter',{
+    axios.post('https://frodosbg-api.vercel.app/api/filter',{
     //axios.post('http://localhost:3001/api/filter',{      
         filter : filterState
     })
