@@ -31,7 +31,7 @@ function App() {
       <Router>
         <div className="App">
           <header className="App-header">
-            <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+            <Navbar className="navbar"  fixed="top" expand="lg">
               <Container>
 
                 <Navbar.Brand>
@@ -41,17 +41,23 @@ function App() {
                 </Navbar.Brand> 
 
               <Navbar.Toggle />
-              <Navbar.Collapse  className="justify-content-end">
+              <Navbar.Collapse  className="justify-content-end ">
 
                   <Nav>
                     <Nav>
-                      <Link to={"/list"} className="nav-link">
-                        Lista de Jogos
+                      <Link to={"/list"} className="nav-link navbar-right">
+                        Lista Aluguel
                       </Link>
-                    </Nav>              
+                    </Nav>
 
                     <Nav>
-                      <Link to={"/about"} className="nav-link">
+                      <Link to={"/store"} className="nav-link navbar-right">
+                        Loja 
+                      </Link>
+                    </Nav>                 
+
+                    <Nav>
+                      <Link to={"/about"} className="nav-link navbar-right">
                         Sobre
                       </Link>
                     </Nav>
@@ -72,6 +78,15 @@ function App() {
                     <Route path="/about" component={About} />
                     <Route path="/list" component={BoardList} />
                     <Route path="/game" component={GameDetail} /> 
+                    <Route path="/store" component={() => { 
+                        window.open('https://loja.frodosbg.com.br/', '_blank');
+                        //window.location.href = 'https://loja.frodosbg.com.br/'; 
+                        return true;
+                    }}/>
+                  
+
+
+
                   </Switch>
                 </div>
               </Col>

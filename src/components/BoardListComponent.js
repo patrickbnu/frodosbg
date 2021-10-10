@@ -22,7 +22,7 @@ export default class BoardList extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://frodosbg-api.vercel.app/api/boards')
+    axios.get((process.env.API_URL ?  process.env.API_URL  :  'http://localhost:3001') + '/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({
@@ -56,8 +56,8 @@ export default class BoardList extends Component {
   filter(filterState) {
     filterState.date  = new Date().toLocaleString("pt-BR")
 
-    axios.post('https://frodosbg-api.vercel.app/api/filter',{
-    //axios.post('http://localhost:3001/api/filter',{      
+    axios.post((process.env.API_URL ?  process.env.API_URL  :  'http://localhost:3001')  + '/api/filter',{
+     
         filter : filterState
     })
     .then(resp => {
@@ -132,18 +132,17 @@ export default class BoardList extends Component {
     return (
     <div className="table-wrapper">
       <Filter filter = {this.filter}></Filter>
-      <Table  bordered hover variant="dark" size="sm" >
-        <thead>
-          <tr>
-            <th className="text-center">Jogo</th>
-            
-          </tr>
-        </thead>
+
+      <span> <br></br></span>  
+
+      <Table  bordered size="sm" >       
         <tbody>
           {this.DataTable()}
         </tbody>
       </Table>
     </div>);
   }
-  //<th className="text-center">Ação</th>
+  
+
+
 }

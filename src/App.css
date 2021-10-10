@@ -1,9 +1,10 @@
 body {
-  background-color: #d0d0da;
+  background-color: #fff6c8;
+  color: #B17A16
 }
 
 thead {
-  color : #7c64fd;
+  color : #B17A16
 }
 
 .button-float-right{
@@ -14,12 +15,7 @@ thead {
   align-items: center;
 }
 
-.color-red {
-  color : rgb(230, 84, 84)
-}
-.color-green {
-  color : rgb(84, 230, 91)
-}
+
 
 
 .check-disponivel {
@@ -34,13 +30,12 @@ thead {
 .div-linha {
   display: flex;
   line-height: 20px;
-  justify-content: center;
+  padding-left: 45px;
+  justify-content: left;
+  background-color: #fff6c8;
 }
 
-.row-detail {
-  
-  background-color: #343538;
-}
+
 .wrapper {
   
   padding-top: 30px;
@@ -51,7 +46,8 @@ body h3 {
 }
 
 .navbar-brand a {
-  color:  #7c64fd
+  color:  #B17A16;
+  font-weight: bold;
 }
 
 .form-wrapper,
@@ -80,4 +76,85 @@ body h3 {
 .edit-link:hover {
   text-decoration: none;
   color: #ffffff;
+}
+
+.navbar {
+  background-color: #1D2C19;
+}
+
+.navbar-right {
+  color: #fff6c8 !important;
+
+}
+
+
+.accordion ,.accordion-card {
+    background-color: #2B8B34;
+    color: #fff6c8 ;
+    font-weight: bold;
+}
+
+.accordion-inner {
+  background-color: #2B8B34;
+  color: #fff6c8 ;  
+  font-weight: normal !important;
+}
+
+
+
+
+
+.bg-unavailable {
+  background-image: url('images/unavailable.png');
+  background-repeat:no-repeat;
+  background-position-x: 10px;
+  background-position-y: center;
+  background-size:20px 20px;   
+  width: 20px; 
+  height: 20px;
+}
+
+
+.bg-new {
+  background-image: url('images/new.png');
+  background-repeat:no-repeat;
+  background-position-x: 5px;
+  background-position-y: center;
+  background-size:35px 35px;   
+  width: 35px; 
+  height: 35px;
+}
+
+.bg-Ouro, .bg-Prata, .bg-Bronze, .bg-Diamante {
+  background-color: #B17A16  ;
+}
+
+
+.text-left-title{
+  font-weight: bold;
+  padding-left:40px !important;
+  color: #1D2C19 ;
+  background-color: #B17A16 ;
+}
+
+.text-left2 {
+  color: black ;  
+  padding-left:40px !important;
+}
+
+.table-hover tbody tr.bg-table-title:hover td, .table-hover tbody tr.bg-table-title:hover th {
+  background-color: #ce9938;
+}
+
+.table-hover tbody tr.row-detail:hover td, .table-hover tbody tr.row-detail:hover th {
+  background-color: #fff6c8;
+}
+
+
+.table td{
+  border: #847a48   solid 1px;
+}
+
+.row-detail {
+  color: #2B8B34
 }

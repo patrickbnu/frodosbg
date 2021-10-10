@@ -93,7 +93,7 @@ export function BoardDetailTableRow(props) {
 
                 <div className="div-linha">
                     <div><b>Complexidade:</b> </div>
-                    <ReactStars count={5} value={complexityRating} size={20} edit={false} isHalf={true} activeColor="rgb(230, 84, 84)" color="#000000"/>
+                    <ReactStars count={5} value={complexityRating} size={20} edit={false} isHalf={true} activeColor='#B17A16' color='rgb(214 210 181)'/>
                 </div> 
 
                 <div className={classAvailable}>

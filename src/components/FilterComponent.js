@@ -65,8 +65,8 @@ export default class About extends Component {
     return (
       <div className="table-wrapper">
 
-          <Accordion  variant="dark" >
-            <Card>
+          <Accordion >
+            <Card  className='accordion-inner' >
               <Accordion.Toggle as={Card.Header} eventKey="0">
                 Pesquisar
               </Accordion.Toggle>
@@ -103,16 +103,16 @@ export default class About extends Component {
                         </Col>
                         <Col>
                           <ReactStars count={5} value={this.state.complexityRating} size={20} edit={true} isHalf={true} 
-                          activeColor="rgb(230, 84, 84)" color="#000000" onChange={this.onChangeComplexity}/>  
+                          activeColor='#fff6c8' color='#1D2C19' onChange={this.onChangeComplexity}/>  
                         </Col>
                       </Row>  
 
                       <Form.Group as={Row}   >  
                         <Col sm="6">
-                          <Button block="block" onClick={() => clear(this.state) } variant="outline-secondary" size="sm"> Limpar</Button>
+                          <Button block="block" onClick={() => clear(this.state) } variant="success" size="sm"> Limpar</Button>
                         </Col>
                         <Col sm="6">                              
-                          <Button block="block" onClick={() => handle(this.state) } variant="outline-success" size="sm"> Pesquisar</Button>
+                          <Button block="block" onClick={() => handle(this.state) } variant="success" size="sm"> Pesquisar</Button>
                         </Col>
                       </Form.Group>             
 

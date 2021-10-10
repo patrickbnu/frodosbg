@@ -10,8 +10,8 @@ export default class About extends Component {
 
   render() {
     return (<div className="">
-    <Jumbotron fluid>
-          <Container>
+    <Jumbotron fluid className='accordion-inner'>
+          <Container >
             Os jogos são divididos em categorias, cada uma com valor diferente. <br/>
             O período do aluguel é de até uma semana (7 dias), podendo ser renovado.<br/><br/>
             <ul>

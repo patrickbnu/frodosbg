@@ -14,7 +14,7 @@ export default class About extends Component {
   render() {
     return (<div className="">
 
-    <Jumbotron fluid>
+    <Jumbotron fluid className='accordion-inner'>
       <Container>
           Atualmente o cadastro é feito via whatsapp, onde é necessário foto dos seguintes documentos:<br/><br/>
           <ul>
@@ -22,7 +22,7 @@ export default class About extends Component {
               <li>Comprovante de residência</li>
           </ul>
 
-         <Button href="https://api.whatsapp.com/send?phone=5547999826190" target="_blank" size="sm" variant="outline-success"> abrir whatsapp </Button>
+         <Button href="https://api.whatsapp.com/send?phone=5547999826190" target="_blank" size="sm" variant="success"> abrir whatsapp </Button>
           
        
       </Container>

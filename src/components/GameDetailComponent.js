@@ -17,7 +17,7 @@ export default class GameDetail extends Component {
 
   componentDidMount() {
 
-    axios.get('https://frodosbg-api.vercel.app/api/board?name='+this.state.gameName)
+    axios.get(process.env.API_URL + '/api/board?name='+this.state.gameName)
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({

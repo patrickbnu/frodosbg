@@ -14,7 +14,7 @@ export default class About extends Component {
   render() {
     return (<div className="">
 
-    <Jumbotron fluid>
+    <Jumbotron fluid className='accordion-inner'>
       <Container>
           É possível renovar o aluguel, cada renovação corresponde à mais uma semana (7 dias).<br/>
           O valor da renovação é de 50% do valor original - metade do preço por cada nova semana.<br/><br/>
