@@ -22,7 +22,7 @@ export default class BoardList extends Component {
   }
 
   componentDidMount() {
-    axios.get((process.env.API_URL ?  process.env.API_URL  :  'http://localhost:3001') + '/api/boards')
+    axios.get( process.env.API_URL  + '/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))
         this.setState({
@@ -56,7 +56,7 @@ export default class BoardList extends Component {
   filter(filterState) {
     filterState.date  = new Date().toLocaleString("pt-BR")
 
-    axios.post((process.env.API_URL ?  process.env.API_URL  :  'http://localhost:3001')  + '/api/filter',{
+    axios.post( process.env.API_URL  +  '/api/filter',{
      
         filter : filterState
     })
