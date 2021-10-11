@@ -9,6 +9,9 @@ import {
   selectCurrent,
 } from '../redux/testSlice';
 
+import Button from 'react-bootstrap/Button';
+
+import {  Link } from "react-router-dom";
 
 export function BoardDetailTableRow(props) {
 
@@ -21,7 +24,7 @@ export function BoardDetailTableRow(props) {
         }
     }
 
-    const current = useSelector(selectCurrent);
+    const current = useSelector(selectCurrent); 
 
     let currentRowId = ("detail-" + current)
 
@@ -65,7 +68,7 @@ export function BoardDetailTableRow(props) {
 
   
     let classAvailable = available ? "div-linha" : "div-linha color-red" 
-  
+    let gameName = "/game/" + detail.url;
 
   
 
@@ -98,6 +101,15 @@ export function BoardDetailTableRow(props) {
 
                 <div className={classAvailable}>
                     <div><b>{textAvailable}</b></div>
+                </div>
+
+                <div className="div-linha">
+                    <div>
+                       
+                        <Link className="btn btn-warning btn-sm" role="button" to={gameName} params={detail}>
+                            MAIS DETALHES
+                        </Link>        
+                    </div>
                 </div>
 
                 

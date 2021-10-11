@@ -83,7 +83,6 @@ function App() {
                     <Route path="/game" component={GameDetail} /> 
                     <Route path="/store" component={() => { 
                         window.open('https://loja.frodosbg.com.br/?utm_campaign=site_aluguel&utm_medium=referral&utm_source=SiteAluguel', '_blank');
-                        //window.location.href = 'https://loja.frodosbg.com.br/'; 
                         return true;
                     }}/>
                   
