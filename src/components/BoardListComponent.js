@@ -10,8 +10,13 @@ import Filter from "./FilterComponent";
 
 export default class BoardList extends Component {
 
+
   constructor(props) {
     super(props)
+
+    props.cacheLifecycles.didCache(this.componentDidCache)
+    props.cacheLifecycles.didRecover(this.componentDidRecover)
+
     this.state = {
       boards: [],
       original : []
@@ -21,7 +26,16 @@ export default class BoardList extends Component {
 
   }
 
+  componentDidCache = () => {
+    console.log("properties cached")
+  }
+
+  componentDidRecover = () => {    
+    console.log("properties recovered")
+  }
+
   componentDidMount() {
+    console.log("componentDidMount")
     axios.get( 'https://frodosbg-api.vercel.app'  + '/api/boards')
       .then(res => {
         //alert(JSON.stringify(res.data))

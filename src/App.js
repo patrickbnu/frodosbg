@@ -9,6 +9,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
   }, []);
   return (
       <Router>
+     
         <div className="App">
           <header className="App-header">
             <Navbar className="navbar"  fixed="top" expand="lg">
@@ -51,7 +53,8 @@ function App() {
                     </Nav>
 
                     <Nav>
-                      <Link to={"/store"} className="nav-link navbar-right">
+                      <Link to={{ pathname: "https://loja.frodosbg.com.br/?utm_campaign=site_aluguel&utm_medium=referral&utm_source=SiteAluguel" }} target="_blank"  className="nav-link navbar-right">
+                     
                         Loja 
                       </Link>
                     </Nav>                 
@@ -73,13 +76,13 @@ function App() {
             <Row>
               <Col md={12}>
                 <div className="wrapper">
-                  <Switch>
-                    <Route exact path='/' component={BoardList} />
-                    <Route path="/about" component={About} />
-                    <Route path="/list" component={BoardList} />
+                  <CacheSwitch>
+                    <CacheRoute when="always" exact path='/' component={BoardList} />
+                    <Route  path="/about" component={About} />
+                    <CacheRoute when="always" path="/list" component={BoardList} />
                     <Route path="/game" component={GameDetail} /> 
                     <Route path="/store" component={() => { 
-                        window.open('https://loja.frodosbg.com.br/', '_blank');
+                        window.open('https://loja.frodosbg.com.br/?utm_campaign=site_aluguel&utm_medium=referral&utm_source=SiteAluguel', '_blank');
                         //window.location.href = 'https://loja.frodosbg.com.br/'; 
                         return true;
                     }}/>
@@ -87,7 +90,7 @@ function App() {
 
 
 
-                  </Switch>
+                  </CacheSwitch>
                 </div>
               </Col>
             </Row>
