@@ -18,6 +18,8 @@ import BoardList from "./components/BoardListComponent";
 import About from "./components/AboutComponent"; 
 import GameDetail from "./components/GameDetailComponent"; 
 
+import logo from './images/logo.png';
+
 function App() {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -38,7 +40,7 @@ function App() {
 
                 <Navbar.Brand>
                   <Link to={"/"} className="nav-link">
-                    Frodo's Board Games
+                    <img width='100%' height={50} alt="" src={logo} />
                   </Link>
                 </Navbar.Brand> 
 
