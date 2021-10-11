@@ -167,7 +167,6 @@ body h3 {
   color: green
 }
 
-
-.nav-link, .navbar-brand {
-  padding: 0px;
+.navbar-brand .nav-link img {
+  margin: -10px 0px;
 }
