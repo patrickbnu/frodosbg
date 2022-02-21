@@ -16,7 +16,7 @@ export default class About extends Component {
 
     <Jumbotron fluid className='accordion-inner'>
       <Container>
-          Retirada é feita em minha residência na rua Divinópolis, bairro da velha central em Blumenau.<br/>
+          Retirada é feita em meu apartamento, no Residencial Arbóris, bairro da água verde em Blumenau.<br/>
           Combinar horário via whatsapp.<br/>
 
          <Button href="https://api.whatsapp.com/send?phone=5547999826190" target="_blank" size="sm" variant="success"> abrir whatsapp </Button>

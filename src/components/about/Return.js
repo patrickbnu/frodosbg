@@ -19,7 +19,7 @@ export default class About extends Component {
           A devolução pode ser feita nos seguintes endereços, combinando previamente via whatsapp:<br/>
 
           <ul>
-              <li><Button href="https://goo.gl/maps/SeJmM2rFeigBdj9R6" target="_blank" size="sm" variant="warning"> localizar</Button> - Bairro Velha Central</li>
+              <li><Button href="https://goo.gl/maps/bBpa2qbmVn1KEqXG8" target="_blank" size="sm" variant="warning"> localizar</Button> - Bairro Água Verde</li>
               <li><Button href="https://g.page/frodosnest?share" target="_blank" size="sm" variant="warning"> localizar</Button> - Bairro Fortaleza</li>
               <li><Button href="https://goo.gl/maps/cAQ7N45NVAiAi4DB7" target="_blank" size="sm" variant="warning"> localizar</Button> - Bairro Centro</li>
           </ul>
