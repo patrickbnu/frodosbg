@@ -129,26 +129,4 @@ export default class About extends Component {
     </div>);
   }
 
-
-  /**
-   * 
-   *  
-   * 
-   * 
-   
-
-                    <Form.Group as={Row}  >
-                            {<div  key="checkbox" >
-                                <Form.Check  column sm="12" type="checkbox"  id={`check-api-checkbox`} >
-                                  <Form.Check.Label >Disponível</Form.Check.Label>
-                                  <Form.Check.Input type="checkbox"  checked={this.state.onlyAvailable} onChange={this.onChangeOnlyAvailable} />
-                                </Form.Check>
-                              </div>}
-                        </Form.Group> 
-
-
-   * 
-   * 
-   * 
-   */
 }

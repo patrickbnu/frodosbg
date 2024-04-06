@@ -55,7 +55,7 @@ export default class BoardList extends Component {
   DataTable() {
     var index = 0;
 
-    
+   
     return this.state.boards.map((res, i) => {
       //alert(JSON.stringify(res));
       return (
@@ -135,20 +135,27 @@ export default class BoardList extends Component {
     }
     
     //alert("state" +JSON.stringify(this.state.boards))
-
+    const filtered = this.state.original.filter(fn);
     this.setState({
-      boards: this.state.original.filter(fn)
+      boards: filtered
     });
+
+    //console.log("filtro: " );
+    //console.log( filtered);
   }
 
 
   render() {
+    console.log(this.state.boards.length);
     return (
     <div className="table-wrapper">
       <Filter filter = {this.filter}></Filter>
 
-      <span> <br></br></span>  
-
+      <br></br>
+      <div> 
+        <b>Quantidade de Jogos: {this.state.boards.length}</b>
+      </div>  
+      <br></br>
       <Table  bordered size="sm" >       
         <tbody>
           {this.DataTable()}
