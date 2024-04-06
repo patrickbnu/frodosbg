@@ -11,7 +11,6 @@ export default class GameDetail extends Component {
   constructor(props) {
     super(props)   
 
-    console.log(this.props.match.params)
 
     let name = this.props.location.pathname
     const gameURL = name.substr(name.lastIndexOf("/")+1, name.length-1);
@@ -57,8 +56,6 @@ export default class GameDetail extends Component {
 
 
   render() {
-    console.log("State" + JSON.stringify(this.state))
-
     let json = JSON.stringify(this.state.board)
 
     let getCategoryValue = (category) => {
@@ -96,9 +93,6 @@ export default class GameDetail extends Component {
 
     let classAvailable = available ? "div-linha-detail color-green" : "div-linha-detail color-red" 
   
-
-  console.log("render, complexityRating: " + complexityRating)
-
     return (
       <div className="table-wrapper">
         

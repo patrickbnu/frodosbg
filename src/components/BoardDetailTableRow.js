@@ -70,8 +70,6 @@ export function BoardDetailTableRow(props) {
     let classAvailable = available ? "div-linha" : "div-linha color-red" 
     let gameName = "/game/" + detail.url;
 
-  
-
     return (
         <tr  className="row-detail">
     

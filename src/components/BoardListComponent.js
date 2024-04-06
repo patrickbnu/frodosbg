@@ -35,10 +35,8 @@ export default class BoardList extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount")
     axios.get( 'https://frodosbg-api.vercel.app'  + '/api/boards')
       .then(res => {
-        //alert(JSON.stringify(res.data))
         this.setState({
           boards: res.data.boards,
           original : res.data.boards
@@ -57,7 +55,6 @@ export default class BoardList extends Component {
 
    
     return this.state.boards.map((res, i) => {
-      //alert(JSON.stringify(res));
       return (
         <Fragment key={"F"+i}>
           <BoardTableRow        obj={res}  id={"id-"+i}        key={"P"+i} /> 
@@ -104,7 +101,7 @@ export default class BoardList extends Component {
         
         if ( Math.floor(board.complexityRating)  > maxComplexity) {
           return false;
-        }
+        } //FIXME esse floor ai
 
         if (board.minPlayers < minPlayers) {
           return false;
@@ -134,19 +131,15 @@ export default class BoardList extends Component {
         return true;
     }
     
-    //alert("state" +JSON.stringify(this.state.boards))
     const filtered = this.state.original.filter(fn);
     this.setState({
       boards: filtered
     });
 
-    //console.log("filtro: " );
-    //console.log( filtered);
   }
 
 
   render() {
-    console.log(this.state.boards.length);
     return (
     <div className="table-wrapper">
       <Filter filter = {this.filter}></Filter>

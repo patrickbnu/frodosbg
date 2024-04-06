@@ -13,7 +13,6 @@ import {
 
 export function BoardTableRow(props) {
 
-    //console.log(props.obj.registrationDate)
 
     const year = new Date(props.obj.registrationDate).getFullYear();
     const newGame = year ==2022;
