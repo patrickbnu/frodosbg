@@ -90,8 +90,8 @@ export default class GameDetail extends Component {
     let minPlayers = detail.minPlayers ? detail.minPlayers : -1;
     let maxPlayers = detail.maxPlayers ? detail.maxPlayers : -1;
 
-    let ludoLink = "https://ludopedia.com.br"+detail.idLudo;
-    let bggLink = "https://boardgamegeek.com"+detail.idBGG;
+    let ludoLink = "https://ludopedia.com.br"+detail.idLudo+ "?utm_source=frodosbg&utm_medium=boarddetail";
+    let bggLink = "https://boardgamegeek.com"+detail.idBGG+ "?utm_source=frodosbg&utm_medium=boarddetail";
 
 
     let classAvailable = available ? "div-linha-detail color-green" : "div-linha-detail color-red" 
