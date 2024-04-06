@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import {  Link } from "react-router-dom";  
+import Button from 'react-bootstrap/Button';
 
 import ReactStars from "react-rating-stars-component";
 
@@ -25,10 +26,13 @@ export default class GameDetail extends Component {
           duration: 0,
           minPlayers : 0,
           maxPlayers: 0,
-          url: ''
+          url: '',
+          idLudo : '',
+          idBGG : ''
         }
     }
   }
+
 
 
   componentDidMount() {
@@ -86,46 +90,45 @@ export default class GameDetail extends Component {
     let minPlayers = detail.minPlayers ? detail.minPlayers : -1;
     let maxPlayers = detail.maxPlayers ? detail.maxPlayers : -1;
 
+    let ludoLink = "https://ludopedia.com.br"+detail.idLudo;
+    let bggLink = "https://boardgamegeek.com"+detail.idBGG;
 
-    let classAvailable = available ? "div-linha color-green" : "div-linha color-red" 
+
+    let classAvailable = available ? "div-linha-detail color-green" : "div-linha-detail color-red" 
   
 
   console.log("render, complexityRating: " + complexityRating)
 
     return (
       <div className="table-wrapper">
-         <p> 
-           <br />
-            Em breve mais detalhes sobre o jogo  {this.state.gameName}
-              <br/>
-          </p>
+        
 
           <table><tbody>
              <tr>    
                 <td className="text-center" colSpan='3'>
 
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Jogo:</b> {detail.name}</div>
                     </div>
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Categoria:</b> {category}</div>
                     </div>
 
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Jogadores:</b> {minPlayers} a {maxPlayers}</div>
                     </div>
 
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Idade mínima:</b> {minimumAge} anos</div>                   
                     </div> 
 
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Duração estimada:</b> {duration} minutos</div>
                     </div>
 
                     
 
-                    <div className="div-linha">
+                    <div className="div-linha-detail">
                         <div><b>Complexidade:</b> </div>
                         <ReactStars count={5} value={complexityRating} size={20} edit={false} isHalf={true} activeColor='#B17A16' color='rgb(214 210 181)'/>
                     </div> 
@@ -138,7 +141,17 @@ export default class GameDetail extends Component {
                 </td>            
             </tr></tbody>
           </table>
+
+          <p> 
+          <br />
+          Mais detalhes nos seguintes sites: <br />
+
+          <Button href={ludoLink} target="_blank" size="sm" variant="info"> Ludopedia </Button>
+          <Button href={bggLink} target="_blank" size="sm" variant="info"> BoardGameGeek </Button>
+          </p>
           <br/>
+
+         
 
           <Link className="btn btn-warning btn-sm" role="button" to={"/"} >
                 Voltar

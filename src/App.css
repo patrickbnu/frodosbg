@@ -35,6 +35,13 @@ thead {
   background-color: #fff6c8;
 }
 
+.div-linha-detail {
+  display: flex;
+  line-height: 20px;
+  justify-content: left;
+  background-color: #fff6c8;
+}
+
 
 .wrapper {
   
