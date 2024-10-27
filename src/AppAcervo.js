@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function App() {
+function AppAcervo() {
   useEffect(() => {
     window.location.href = 'https://frodosbg.acervodejogos.com.br/'; 
   }, []);
@@ -8,4 +8,4 @@ function App() {
   return null; // Não renderiza nada, pois redireciona imediatamente
 }
 
-export default App;
+export default AppAcervo;
