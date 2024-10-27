@@ -6,6 +6,8 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Table from './Table';
 import App from './App';
+
+import AppAcervo from './AppAcervo';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -14,7 +16,7 @@ import { Provider } from 'react-redux';
 
 ReactDOM.render((
     <Provider store={store}>
-        <App />
+        <AppAcervo />
     </Provider>
 
 ), document.getElementById('root'));
