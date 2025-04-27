@@ -8,6 +8,8 @@ function AppAcervo() {
       window.location.href = 'https://frodosbg.acervodejogos.com.br/plans/index';
     } else if (path === '/loja') {
       window.location.href = 'https://loja.frodosbg.com.br/';
+    } else if (path === '/links') {
+      window.location.href = 'https://links.frodosbg.com.br/';
     } else {
       window.location.href = 'https://frodosbg.acervodejogos.com.br';
     }
