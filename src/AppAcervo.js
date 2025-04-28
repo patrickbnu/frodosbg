@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LinksPage from './components/LinksPage'; // importa o LinksPage correto
 
 function AppAcervo() {
   const [isLinksDomain, setIsLinksDomain] = useState(false);
@@ -23,26 +24,16 @@ function AppAcervo() {
         window.location.href = 'https://links.frodosbg.com.br/';
         break;
       default:
-        window.location.href = 'https://frodosbg.acervodejogos.com.br';
+        //window.location.href = 'https://frodosbg.acervodejogos.com.br';
         break;
     }
   }, []);
 
-  if (isLinksDomain) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>Bem-vindo ao Frodo's Links!</h1>
-        <p>Escolha um dos links abaixo:</p>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li><a href="https://loja.frodosbg.com.br">🛒 Loja de Jogos</a></li>
-          <li><a href="https://frodosbg.acervodejogos.com.br">🎲 Acervo de Jogos</a></li>
-          <li><a href="https://instagram.com/frodosbg">📸 Instagram</a></li>
-        </ul>
-      </div>
-    );
+  if (true) {
+    return <LinksPage />;
   }
 
-  return null; // Se não for links.frodosbg.com.br, deixa o redirecionamento normal
+  return null;
 }
 
 export default AppAcervo;
