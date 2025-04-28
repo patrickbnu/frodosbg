@@ -24,12 +24,12 @@ function AppAcervo() {
         window.location.href = 'https://links.frodosbg.com.br/';
         break;
       default:
-        //window.location.href = 'https://frodosbg.acervodejogos.com.br';
+        window.location.href = 'https://frodosbg.acervodejogos.com.br';
         break;
     }
   }, []);
 
-  if (true) {
+  if (isLinksDomain) {
     return <LinksPage />;
   }
 

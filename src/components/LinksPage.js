@@ -1,6 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function LinksPage() {
+  const [backgroundColor, setBackgroundColor] = useState('linear-gradient(135deg, rgb(254, 251, 233), #fff6c8)');
+
+  useEffect(() => {
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (isDarkMode) {
+      setBackgroundColor('linear-gradient(135deg, #1e1e1e, #2c2c2c)');
+    } else {
+      setBackgroundColor('linear-gradient(135deg, rgb(254, 251, 233), #fff6c8)');
+    }
+  }, []);
+
   const [hoveredButton, setHoveredButton] = useState(null);
 
   const styles = {
@@ -11,22 +23,16 @@ function LinksPage() {
       justifyContent: 'center',
       minHeight: '100vh',
       padding: '20px',
-      background: 'linear-gradient(135deg, rgb(254, 251, 233), #fff6c8)',
+      background: backgroundColor,
     },
     content: {
       width: '100%',
-      maxWidth: '500px', // aumentei o tamanho para desktop
+      maxWidth: '500px',
       textAlign: 'center',
       background: '#fff6c8',
       padding: '40px 30px',
       borderRadius: '20px',
       boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-    },
-    avatar: {
-      width: '100px',
-      height: '100px',
-      borderRadius: '50%',
-      marginBottom: '20px',
     },
     title: {
       fontSize: '28px',
@@ -68,8 +74,6 @@ function LinksPage() {
   return (
     <div style={styles.container}>
       <div style={styles.content}>
-        { /*<img src="/favicon.ico" alt="Frodo's BG" style={styles.avatar} /> */}
-
         <h1 style={styles.title}>Frodo's Board Games</h1>
         <p style={styles.subtitle}>Venda e Aluguel de Jogos de Tabuleiro</p>
 
