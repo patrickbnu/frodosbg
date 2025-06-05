@@ -69,6 +69,8 @@ function LinksPage() {
     { href: 'https://frodosbg.acervodejogos.com.br/', label: '📚 Aluguel de Jogos' },
     { href: 'https://instagram.com/frodosbg', label: '📸 Instagram' },
     { href: 'https://wa.me/5547999826190', label: '💬 WhatsApp' },
+    { href: 'https://chat.whatsapp.com/KfXcqVj2eITHiGOsugfVS4', label: '📲 Nossa Comunidade' },
+    
   ];
 
   return (
