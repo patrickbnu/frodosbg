@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import LinksPage from './components/LinksPage'; // importa o LinksPage correto
+import LinksPage from './components/LinksPage';
 
 function AppAcervo() {
   const [isLinksDomain, setIsLinksDomain] = useState(false);
@@ -11,6 +11,14 @@ function AppAcervo() {
     if (hostname === 'links.frodosbg.com.br') {
       setIsLinksDomain(true);
       return;
+    }
+
+    if (path.startsWith('/jogo/')) {
+      const jogoId = path.replace('/jogo/', '');
+      if (jogoId) {
+        window.location.href = `https://frodosbg.acervodejogos.com.br/boardgames/${jogoId}`;
+        return;
+      }
     }
 
     switch (path) {
