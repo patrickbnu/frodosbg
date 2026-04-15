@@ -22,6 +22,9 @@ function AppAcervo() {
     }
 
     switch (path) {
+      case '/missaobcx':
+        window.location.href = 'https://www.instagram.com/p/DXIVOGLjiFO/?img_index=1';
+        break;
       case '/assinatura':
         window.location.href = 'https://frodosbg.acervodejogos.com.br/plans/index';
         break;
