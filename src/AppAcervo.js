@@ -22,9 +22,32 @@ function AppAcervo() {
     }
 
     switch (path) {
-      case '/missaobcx':
-        window.location.href = 'https://www.instagram.com/p/DXIVOGLjiFO/?img_index=1';
+      case '/missaobcx': {
+        const today = new Date();
+        const day = today.getDate();
+        const month = today.getMonth() + 1; 
+      
+        if (month === 4) {
+          switch (day) {
+            case 16: // Sexta
+              window.location.href = 'https://www.instagram.com/p/DXOBf_GDLp2/';
+              break;
+            case 17: // Sábado
+              window.location.href = 'https://www.instagram.com/p/DXOBl4vDLcO/';
+              break;
+            case 18: // Domingo
+              window.location.href = 'https://www.instagram.com/p/DXOBxZPjP2L/';
+              break;
+            default:
+              window.location.href = 'https://www.instagram.com/missaobcx';
+              break;
+          }
+        } else {
+          window.location.href = 'https://www.instagram.com/missaobcx';
+        }
+      
         break;
+      }
       case '/assinatura':
         window.location.href = 'https://frodosbg.acervodejogos.com.br/plans/index';
         break;
