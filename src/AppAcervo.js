@@ -29,13 +29,13 @@ function AppAcervo() {
       
         if (month === 4) {
           switch (day) {
-            case 16: // Sexta
+            case 17: // Sexta
               window.location.href = 'https://www.instagram.com/p/DXOBf_GDLp2/';
               break;
-            case 17: // Sábado
+            case 18: // Sábado
               window.location.href = 'https://www.instagram.com/p/DXOBl4vDLcO/';
               break;
-            case 18: // Domingo
+            case 19: // Domingo
               window.location.href = 'https://www.instagram.com/p/DXOBxZPjP2L/';
               break;
             default:
